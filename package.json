@@ -1,5 +1,5 @@
 {
-  "name": "bitwise-gd",
+  "name": "@g-js-api/binary",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
