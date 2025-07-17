@@ -135,7 +135,7 @@ let init = (bits) => {
 
     let convert = (val, fn) => {
         let vcopy = counter().set(val);
-        for (let i = bit - 1; i >= 0; i--) {
+        for (let i = bits - 1; i >= 0; i--) {
             let exp = 2 ** i;
             compare(vcopy, GREATER_OR_EQ, exp, trigger_function(() => {
                 vcopy.subtract(exp);
