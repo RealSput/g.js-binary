@@ -13,7 +13,7 @@ await $.exportConfig({
 
 let binary = new Binary(16); // MUST be run before anything else!
 
-let blockk = unknown_g();
+let block = unknown_g();
 object({
     OBJ_ID: 1,
     X: 15,
@@ -25,9 +25,9 @@ object({
 let res1 = binary.pow2(5);
 res1.display(45, -15);
 
-// moves `mgroup` by 32 (2 ^ 5) steps
+// moves `block` by 32 (2 ^ 5) steps
 binary.convert(res1, (exp) => {
-  mgroup.move(exp, 0);
+  block.move(exp, 0);
 })
 
 // does `res1 << 2`
