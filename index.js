@@ -128,7 +128,7 @@ let init = (bits) => {
         mode.set(op);
         val2.set(v2);
         let ctx = trigger_function(() => {});
-        bitwiseF.remap([9998, ctx]).call();
+        bitwiseF.remap([9998, ctx]).call(1/240);
         Context.set(ctx);
         return copy ? counter().set(result) : result;
     }
