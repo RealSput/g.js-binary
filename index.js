@@ -123,17 +123,17 @@ let init = (bits) => {
         group(9998).call();
     });
 
-    let bitwise = (v1, op, v2 = 0, copy = true) => {
+    let bitwise = (v1, op, v2 = 0, copy = true, delay = true) => {
         val1.set(v1);
         mode.set(op);
         val2.set(v2);
         let ctx = trigger_function(() => {});
-        bitwiseF.remap([9998, ctx]).call(1/240);
+        bitwiseF.remap([9998, ctx]).call(delay ? 1/240 : 0);
         Context.set(ctx);
         return copy ? counter().set(result) : result;
     }
 
-    let convert = (val, fn) => {
+    let convert = (val, fn, delay = true) => {
         let vcopy = counter().set(val);
         for (let i = bits - 1; i >= 0; i--) {
             let exp = 2 ** i;
@@ -141,6 +141,7 @@ let init = (bits) => {
                 vcopy.subtract(exp);
                 fn(exp);
             }));
+            if (delay) wait(1/240);
         }
     };
 

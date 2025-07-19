@@ -46,13 +46,15 @@ Methods:
         - value1 (number / counter): The first value to the operation
         - op (number): The bitwise operator (AND, OR, XOR, LSHIFT, RSHIFT, NAND, NOR, NOT, XNOR)
         - value2 (number / counter): The second value to the operation (optional only for NOT operator)
-        - copy (boolean, optional): Whether to copy to a new counter or to directly return the counter used in the backend
+        - copy (boolean, optional, default = true): Whether to copy to a new counter or to directly return the counter used in the backend
+        - delay (number, optional, default = true): Whether to delay by a small amount (do NOT disable unless you're working on very low-level stuff!)
 - `.pow2`: Calculates 2^x
     - Parameters:
         - exp (number): The exponent to base 2
-        - copy (boolean, optional): Whether to copy to a new counter or to directly return the counter used in the backend
+        - copy (boolean, optional, default = true): Whether to copy to a new counter or to directly return the counter used in the backend
 - `convert`: Converts a counter to triggers by repeatedly subtracting powers of two (only works on additive triggers, e.g. move, rotate, scale)
     - Parameters:
         - value (counter): The counter to convert into triggers
         - fn (function): The function that holds the triggers
             - Parameters passed to function: `exp`, which stores the current power of two
+        - delay (number, optional, default = true): Whether to delay by a small amount (do NOT disable unless you're working on very low-level stuff!)
